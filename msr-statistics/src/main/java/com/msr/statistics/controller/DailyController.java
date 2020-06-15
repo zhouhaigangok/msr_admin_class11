@@ -5,10 +5,7 @@ import com.msr.common.vo.R;
 import com.msr.statistics.entity.Daily;
 import com.msr.statistics.service.DailyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,6 +28,16 @@ public class DailyController {
     public R list(){
         List<Daily> list = dailyService.list(null);
         return R.ok().data("list",list);
+    }
+
+    /**
+     * 定义方法，调用业务层的统计注册人数的方法
+     */
+
+    @GetMapping("{day}")
+    public R createStatisticsByDate(@PathVariable String day) {
+        Integer countRegister = dailyService.createStatisticsByDay(day);
+        return R.ok().data("countRegister",countRegister);
     }
 }
 
