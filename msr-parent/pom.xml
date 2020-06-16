@@ -46,6 +46,7 @@
         <module>../msr-statistics</module>
         <module>../renren-fast</module>
         <module>../renren-generator</module>
+        <module>../msr-gateway</module>
     </modules>
 
     <dependencyManagement>
